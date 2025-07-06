@@ -11,6 +11,13 @@ aws_secret_access_key = st.secrets["aws_secret_access_key"]
 aws_region = st.secrets["aws_region"]
 s3_bucket = st.secrets["s3_bucket"]
 
+st.title("F1 Streamlit Dashboard")
+
+# 🔄 Add Refresh Button
+if st.button("🔄 Refresh Data from S3"):
+    st.cache_data.clear()
+    st.experimental_rerun()
+
 # Create S3 client
 s3 = boto3.client(
     "s3",
